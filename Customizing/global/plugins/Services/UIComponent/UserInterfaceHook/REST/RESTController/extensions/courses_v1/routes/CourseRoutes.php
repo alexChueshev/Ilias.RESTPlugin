@@ -16,7 +16,6 @@ use \RESTController\extensions\courses_v1 as Courses;
 
 $app->group('/v1', function () use ($app) {
 
-
     /**
      * Retrieves a list of all courses of the authenticated user and meta-information about them (no content).
      */
@@ -198,12 +197,5 @@ $app->group('/v1', function () use ($app) {
         }
     });
 
-    /**
-     * Download representation of learning module identified by its ref_id
-     */
-    $app->get('/courses/download/lm/:ref_id', RESTAuth::checkAccess(RESTAuth::PERMISSION), function ($ref_id) use ($app) {
-
-
-    });
 
 });

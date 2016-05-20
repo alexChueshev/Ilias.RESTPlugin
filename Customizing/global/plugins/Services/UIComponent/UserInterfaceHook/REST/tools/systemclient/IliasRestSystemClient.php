@@ -1,5 +1,5 @@
 <?php
-include('C:/Users/Alexander/Desktop/ILIAS-5.1.5/Customizing/global/plugins/Services/UIComponent/UserInterfaceHook/REST/tools/systemclient/httpful.phar');
+include('httpful.phar');
 
 /**
  * ILIAS Rest System Client
