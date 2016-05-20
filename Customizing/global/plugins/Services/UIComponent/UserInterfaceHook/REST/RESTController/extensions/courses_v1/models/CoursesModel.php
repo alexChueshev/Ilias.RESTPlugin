@@ -257,6 +257,16 @@ class CoursesModel extends Libs\RESTModel
         }
     }
 
+    /**
+     * Create zip packet of learning module
+     *
+     * @param $ref_id string id of learning module
+     * @param $format string format of module's content ("xml" or "html" or "scorm")
+     * @return string lint to download zipped module
+     */
+    public function downloadLearningModule($ref_id, $format) {
+
+    }
 
     /*public function soapTest()
     {
