@@ -197,5 +197,11 @@ $app->group('/v1', function () use ($app) {
         }
     });
 
+    /**
+     * Download learning module of course identified by its ref_id
+     */
+    $app->get('/courses/download/lm/:ref_id', RESTAuth::checkAccess(RESTAuth::PERMISSION), function ($ref_id) use ($app) {
+
+    });
 
 });
