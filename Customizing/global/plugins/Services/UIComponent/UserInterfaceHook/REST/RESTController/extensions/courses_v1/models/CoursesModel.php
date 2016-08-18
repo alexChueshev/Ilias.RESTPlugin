@@ -258,14 +258,27 @@ class CoursesModel extends Libs\RESTModel
     }
 
     /**
-     * Create zip packet of learning module
+     * Creates zip packet of learning module
      *
      * @param $ref_id string id of learning module
      * @param $format string format of module's content ("xml" or "html" or "scorm")
-     * @return string lint to download zipped module
+     * @return string link to download zipped module
      */
     public function downloadLearningModule($ref_id, $format) {
+        require_once("./Services/Export/classes/class.ilExport.php");
 
+        Libs\RESTilias::loadIlUser();
+        $lm = \ilObjectFactory::getInstanceByRefId($ref_id, false);
+        switch($format) {
+            case 'xml': $exp = (new \ilExport())->exportObject($lm->getType(), $lm->getId());
+                break;
+            case 'html':    //TODO create export of other formats
+            case 'scorm':
+                break;
+        }
+        if($exp['success']) {
+            \ilUtil::deliverFile($exp['directory']."/".$exp['file'], $exp['file']);
+        }
     }
 
     /*public function soapTest()
